@@ -108,6 +108,8 @@ class MainWindow(QMainWindow):
         btn_connect.setIcon(QIcon("plug.png"))
         layout.addWidget(btn_connect)
         layout.addStretch()
+
+        
         layout.addWidget(QLabel("Disconnected"))
 
         return layout
@@ -149,7 +151,10 @@ class MainWindow(QMainWindow):
         self.temp_set.setSuffix(" °C")
 
         layout.addWidget(self.temp_set, 5, 1)
-        layout.addWidget(QPushButton("Set Temperature"), 6, 1)
+        btn_temp = QPushButton("Set Temperature")
+        btn_temp.setIcon(QIcon("temperature.png"))
+        layout.addWidget(btn_temp, 6, 1)
+        
 
         box.setLayout(layout)
         return box
@@ -178,7 +183,11 @@ class MainWindow(QMainWindow):
         layout.addWidget(QLabel("Amplitude (p-p)"), 4, 0)
         layout.addWidget(QSlider(Qt.Horizontal), 4, 1)
 
-        layout.addWidget(QPushButton("Set Parameters"), 5, 1)
+
+        btn_para = QPushButton("Set Parameters")
+        btn_para.setIcon(QIcon("settings.png"))
+        layout.addWidget(btn_para, 5, 1)
+        
 
         box.setLayout(layout)
         return box
@@ -209,7 +218,11 @@ class MainWindow(QMainWindow):
         indicator.setStyleSheet("font-size: 60px;")
         layout.addWidget(indicator, 3, 0, 1, 2)
 
-        layout.addWidget(QPushButton("Set"), 4, 0, 1, 2)
+
+        btn_set = QPushButton("Set")
+        btn_set.setIcon(QIcon("set.png"))
+        layout.addWidget(btn_set, 4, 0, 1, 2)
+        
 
         box.setLayout(layout)
         return box
@@ -217,11 +230,19 @@ class MainWindow(QMainWindow):
     # ---------------- Bottom Controls ----------------
     def bottom_controls(self):
         layout = QHBoxLayout()
-        layout.addWidget(QPushButton("Run: Slope"))
-        layout.addWidget(QPushButton("Run: DC"))
+
+        btn_runslope = QPushButton("Run: Slope")
+        btn_runslope.setIcon(QIcon("slope.png"))
+        layout.addWidget(btn_runslope)
+
+        btn_rundc = QPushButton("Run: DC")
+        btn_rundc.setIcon(QIcon("code.png"))
+        layout.addWidget(btn_rundc)
+
         btn_stop = QPushButton("Stop")
         btn_stop.setIcon(QIcon("stop.png"))
         layout.addWidget(btn_stop)
+
         layout.addStretch()
         btn_save = QPushButton("Save All Settings")
         btn_save.setIcon(QIcon("save.png"))
